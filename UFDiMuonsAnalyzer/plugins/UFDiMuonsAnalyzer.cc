@@ -224,8 +224,14 @@ void UFDiMuonsAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup&
   // Sort the selected electrons by pT
   sort(elesSelected.begin(), elesSelected.end(), sortElesByPt);
   
-  FillEleInfos( _eleInfos, elesSelected, primaryVertex, iEvent, 
-  		ele_id_veto, ele_id_loose, ele_id_medium, ele_id_tight );
+//  FillEleInfos( _eleInfos, elesSelected, primaryVertex, iEvent, 
+//  		ele_id_veto, ele_id_loose, ele_id_medium, ele_id_tight );
+
+    EleInfo someInfo; someInfo.init();
+    _myEleInfos.push_back(someInfo);
+    _myEleInfos.push_back(someInfo);
+//    _eleInfos.eles.push_back(someInfo);
+//    _eleInfos.eles.push_back(someInfo);
 
   // Mysterious segfault prevents filling branch in TTree. Not yet resolved. - AWB 01.12.16
   // ----
@@ -372,16 +378,14 @@ void UFDiMuonsAnalyzer::beginJob() {
 
   displaySelection();
 
-  // Include user-defined structs (or classes) in the output tree
-  gROOT->ProcessLine("#include <UfHMuMuCode/UFDiMuonsAnalyzer/interface/LinkDef.h>");
-
   // Set up the _outTree branches
   _outTree->Branch("event",         (EventInfo*)     &_eventInfo         );
   _outTree->Branch("vertices",      (VertexInfos*)   &_vertexInfos       );
   _outTree->Branch("muons",         (MuonInfos*)     &_muonInfos         );
   _outTree->Branch("pairs",         (PairInfos*)     &_pairInfos         );
   // // Electrons and taus cause mysterious segfault in runtime. Not yet resolved. - AWB 01.12.16
-  // _outTree->Branch("eles",          (EleInfos*)      &_eleInfos          );
+   _outTree->Branch("eles",          (EleInfos*)      &_eleInfos          );
+   _outTree->Branch("myEles", (MyEleInfos*)&_myEleInfos);
   // _outTree->Branch("taus",          (TauInfos*)      &_tauInfos          );
   _outTree->Branch("met",           (MetInfo*)       &_metInfo           );
   _outTree->Branch("jets",          (JetInfos*)      &_jetInfos          );

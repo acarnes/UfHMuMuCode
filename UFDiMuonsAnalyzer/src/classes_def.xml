@@ -1,7 +1,6 @@
 <lcgdict>
-  <selection>
-    
-    <class name="EleInfo"/>
+      <class name="EleInfo"/>
+      <class name="std::vector<EleInfo>"/>
     <class name="EleInfos"/>
     <!-- <class name="edm::Wrapper<EleInfos>"/> -->
     
@@ -38,6 +37,4 @@
     <class name="VertexInfo"/> 
     <class name="VertexInfos"/> 
     <!-- <class name="edm::Wrapper<VertexInfos>"/>  -->
-
-    </selection>
 </lcgdict>

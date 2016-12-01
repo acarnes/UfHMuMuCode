@@ -76,6 +76,7 @@ public:
 
   // array of electrons
   EleInfos  _eleInfos;
+  MyEleInfos _myEleInfos;
 
   // array of taus
   TauInfos  _tauInfos;

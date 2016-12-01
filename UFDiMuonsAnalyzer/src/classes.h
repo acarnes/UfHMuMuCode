@@ -5,6 +5,7 @@ namespace {
   struct dictionary {
     
     EleInfo dummy1;
+    MyEleInfos dummy100;
     EleInfos dummy1a;
     GenJetInfo dummy2;
     GenJetInfos dummy2a;
