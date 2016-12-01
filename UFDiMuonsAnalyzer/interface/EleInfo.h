@@ -34,6 +34,8 @@ struct EleInfo {
 
 };
 
+typedef std::vector<EleInfo> MyEleInfos;
+
 struct EleInfos {
 
   Int_t nEles;
