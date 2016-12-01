@@ -1,6 +1,7 @@
 <lcgdict>
       <class name="EleInfo"/>
       <class name="std::vector<EleInfo>"/>
+      <class name="edm::Wrapper<std::vector<EleInfo> >"/>
     <class name="EleInfos"/>
     <!-- <class name="edm::Wrapper<EleInfos>"/> -->
     
